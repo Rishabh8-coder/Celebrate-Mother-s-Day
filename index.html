@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrate Mother's Day</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fef6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            /* background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); */
+            background-image: url(mothers\ day.jpg);
+            color: white;
+            padding: 10px 10;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+            background: url('/api/placeholder/1200/800') center/cover no-repeat;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 154, 158, 0.8) 0%, rgba(250, 208, 196, 0.8) 100%);
+            z-index: -1;
+        }
+        
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        
+        .countdown {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff5a75;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(255, 90, 117, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: #ff3f5e;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 90, 117, 0.4);
+        }
+        
+        /* Navigation Styles */
+        nav {
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff5a75;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #ff5a75;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        /* Main Content Styles */
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ff5a75;
+            font-size: 2.2rem;
+        }
+        
+        .section-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .category-content {
+            padding: 20px;
+        }
+        
+        .category-content h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .category-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        /* Activities Section */
+        .activities {
+            background-color: white;
+        }
+        
+        .activities-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .activity-card {
+            display: flex;
+            background-color: #fff7f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .activity-img {
+            flex: 0 0 40%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .activity-content {
+            flex: 0 0 60%;
+            padding: 25px;
+        }
+        
+        .activity-content h3 {
+            color: #ff5a75;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .activity-content p {
+            margin-bottom: 15px;
+        }
+        
+        .activity-steps {
+            margin-top: 15px;
+        }
+        
+        .activity-steps li {
+            margin-bottom: 10px;
+        }
+        
+        /* Quotes Section */
+        .quotes {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .quote-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .quote-slide {
+            display: none;
+            padding: 20px;
+        }
+        
+        .quote-slide.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .quote-author {
+            font-weight: bold;
+            color: #ff5a75;
+        }
+        
+        .quote-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .quote-nav-btn {
+            background: white;
+            border: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .quote-nav-btn.active {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        
+        /* Special Section */
+        .special-section {
+            background-color: #fff7f9;
+            padding: 80px 0;
+        }
+        
+        .special-container {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .special-image {
+            flex: 0 0 50%;
+            height: 400px;
+            background: url('/api/placeholder/600/400') center/cover no-repeat;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .special-content {
+            flex: 0 0 50%;
+            padding: 20px;
+        }
+        
+        .special-content h2 {
+            color: #ff5a75;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .special-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Story Sharing Section */
+        .story-sharing {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .story-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff7f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #ff5a75;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #ff3f5e;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: #ff9a9e;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #ff9a9e;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-color: #444;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #ff9a9e;
+        }
+        
+        /* Newsletter Form */
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 0.9rem;
+        }
+        
+        .newsletter-btn {
+            background-color: #ff5a75;
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: #ff3f5e;
+        }
+        
+        /* Responsive Styles */
+        @media screen and (max-width: 992px) {
+            .header-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .special-container {
+                flex-direction: column;
+            }
+            
+            .special-image,
+            .special-content {
+                flex: 0 0 100%;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .header-content {
+                min-height: 50vh;
+            }
+            
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .countdown {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .activity-card {
+                flex-direction: column;
+            }
+            
+            .activity-img {
+                height: 200px;
+                flex: auto;
+            }
+            
+            .activity-content {
+                flex: auto;
+            }
+            
+            .quote-text {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>Celebrate Mother's Day</h1>
+            <p>Honor the special woman in your life with our curated ideas for gifts, activities, and heartfelt messages.</p>
+            <div class="countdown" id="countdown">Mother's Day: <span id="days">0</span> days remaining</div>
+            <a href="#gift-ideas" class="btn">Explore Gift Ideas</a>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Mothers' Day</div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#gift-ideas">Gift Ideas</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#messages">Messages</a></li>
+                <li><a href="#special">Special Features</a></li>
+                <li><a href="#share">Share Your Story</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Categories Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Celebrate Mom in Every Way</h2>
+            <p class="section-description">Explore our comprehensive guide to making this Mother's Day truly special with thoughtful gifts, memorable activities, and heartfelt messages.</p>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="gift idea.png" alt="Gift Ideas" class="category-img">
+                    <div class="category-content">
+                        <h3>Gift Ideas</h3>
+                        <p>Discover thoughtful and unique gift ideas that will make mom feel truly special on her day.</p>
+                        <a href="gift_ideas.html" class="btn">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="activity.jpg" alt="Activities" class="category-img">
+                    <div class="category-content">
+                        <h3>Activities & Celebrations</h3>
+                        <p>Create lasting memories with fun and meaningful activities you can enjoy together.</p>
+                        <a href="Activities.html" class="btn">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="heartfeel.jpeg" alt="Messages" class="category-img">
+                    <div class="category-content">
+                        <h3>Heartfelt Messages</h3>
+                        <p>Express your love and gratitude with beautifully crafted messages and quotes.</p>
+                        <a href="Heartfelt.html" class="btn">Explore</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="special.jpeg" alt="Special Features" class="category-img">
+                    <div class="category-content">
+                        <h3>Special Features</h3>
+                        <p>Learn about the history of Mother's Day and celebrate all types of motherhood.</p>
+                        <a href="Special Features.html" class="btn">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Activities Section -->
+    <section class="section activities" id="activities">
+        <div class="container">
+            <h2 class="section-title">Memorable Activities & Celebrations</h2>
+            <p class="section-description">Create lasting memories with these special Mother's Day activities.</p>
+            
+            <div class="activities-container">
+                <div class="activity-card">
+                    <div class="activity-img" style="background-image: url('breakfast.jpg')"></div>
+                    <div class="activity-content">
+                        <h3>Breakfast in Bed</h3>
+                        <p>Start mom's special day with a delicious breakfast served right in bed. It's a classic way to show your appreciation and kick off a day of celebration.</p>
+                        <div class="activity-steps">
+                            <h4>Quick Tips:</h4>
+                            <ul>
+                                <li>Plan the menu the day before</li>
+                                <li>Set up a tray with a small vase of flowers</li>
+                                <li>Include her favorite morning beverage</li>
+                                <li>Add a handwritten note for a personal touch</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-img" style="background-image: url('movie.avif')"></div>
+                    <div class="activity-content">
+                        <h3>Movie Marathon</h3>
+                        <p>Create the perfect movie marathon featuring mom's favorite films. Make it extra special with comfortable seating, plenty of snacks, and uninterrupted quality time.</p>
+                        <div class="activity-steps">
+                            <h4>Quick Tips:</h4>
+                            <ul>
+                                <li>Select 3-4 of her favorite movies ahead of time</li>
+                                <li>Create a cozy viewing area with pillows and blankets</li>
+                                <li>Prepare a variety of snacks and treats</li>
+                                <li>Turn off all distractions and focus on enjoying the movies together</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-img" style="background-image: url('garden.webp')"></div>
+                    <div class="activity-content">
+                        <h3>Garden Visit & Picnic</h3>
+                        <p>Take mom to a beautiful botanical garden or park and enjoy a peaceful day surrounded by nature. Pack a delicious picnic to make the day even more special.</p>
+                        <div class="activity-steps">
+                            <h4>Quick Tips:</h4>
+                            <ul>
+                                <li>Check local gardens for any special Mother's Day events</li>
+                                <li>Pack a comfortable blanket and cushions</li>
+                                <li>Prepare a picnic with mom's favorite foods</li>
+                                <li>Bring a camera to capture the beautiful moments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Messages Section -->
+    <section class="section quotes" id="messages">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Heartfelt Messages & Quotes</h2>
+            
+            <div class="quote-slider" id="quoteSlider">
+                <div class="quote-slide active">
+                    <p class="quote-text">"A mother's love is the fuel that enables a normal human being to do the impossible."</p>
+                    <p class="quote-author">- Marion C. Garretty</p>
+                </div>
+                
+                <div class="quote-slide">
+                    <p class="quote-text">"To the world, you are a mother, but to your family, you are the world."</p>
+                    <p class="quote-author">- Unknown</p>
+                </div>
+                
+                <div class="quote-slide">
+                    <p class="quote-text">"Life doesn't come with a manual, it comes with a mother."</p>
+                    <p class="quote-author">- Unknown</p>
+                </div>
+                
+                <div class="quote-slide">
+                    <p class="quote-text">"A mother's arms are more comforting than anyone else's."</p>
+                    <p class="quote-author">- Princess Diana</p>
+                </div>
+                
+                <div class="quote-slide">
+                    <p class="quote-text">"The influence of a mother in the lives of her children is beyond measure."</p>
+                    <p class="quote-author">- James E. Faust</p>
+                </div>
+                
+                <div class="nav-dots quote-nav">
+                    <button class="quote-nav-btn active" data-index="0"></button>
+                    <button class="quote-nav-btn" data-index="1"></button>
+                    <button class="quote-nav-btn" data-index="2"></button>
+                    <button class="quote-nav-btn" data-index="3"></button>
+                    <button class="quote-nav-btn" data-index="4"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Special Section -->
+    <section class="section special-section" id="special">
+        <div class="container special-container">
+            <div class="special-image" style="background-image: url('celebrity.webp')"></div>
+            <div class="special-content">
+                <h2>Mom's Day 101: Origin & Celebration</h2>
+                <p>Mother's Day is celebrated on the second Sunday in May in many countries around the world. The modern holiday was first celebrated in 1908 when Anna Jarvis held a memorial for her mother at St Andrew's Methodist Church in Grafton, West Virginia.</p>
+                <p>Anna Jarvis wanted to honor her mother by continuing the work she started and to set aside a day to honor all mothers because she believed a mother is "the person who has done more for you than anyone in the world".</p>
+                <p>Today, Mother's Day is celebrated in various ways worldwide. It has become one of the biggest holidays for consumer spending, with people buying flowers, cards, jewelry, and special meals to celebrate the maternal figures in their lives.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Story Sharing Section -->
+    <section class="section story-sharing" id="share">
+        <div class="container">
+            <h2 class="section-title">Share Your Mother's Day Story</h2>
+            <p class="section-description">Share your favorite memory with your mom or a special maternal figure in your life.</p>
+            
+            <form class="story-form" id="storyForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="story">Your Story</label>
+                    <textarea id="story" class="form-control" placeholder="Share a special memory or message about your mom..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Share Your Story</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Mother's Day</h3>
+                    <ul class="footer-links">
+                        <li><a href="#gift-ideas">Gift Ideas</a></li>
+                        <li><a href="#activities">Activities</a></li>
+                        <li><a href="#messages">Messages</a></li>
+                        <li><a href="#special">Special Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@andisoftwaresolutions.com</li>
+                        <li>Phone: +91-7015574125</li>
+                        <li>Address: near, Railway Rd, Geeta Colony, Panipat, Haryana 132103</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/" class="social-link">F</a>
+                        <a href="https://www.telegram.com/" class="social-link">T</a>
+                        <a href="https://www.instagram.com/" class="social-link">I</a>
+                        <a href="https://www.google.com/" class="social-link">g</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for more ideas and updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn">→</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mother's Day Celebration. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Quote Slider Functionality
+        const quoteSlides = document.querySelectorAll('.quote-slide');
+        const quoteNavBtns = document.querySelectorAll('.quote-nav-btn');
+        let currentQuoteIndex = 0;
+        
+        function showQuote(index) {
+            // Hide all slides
+            quoteSlides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Deactivate all nav buttons
+            quoteNavBtns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show current slide and activate current nav button
+            quoteSlides[index].classList.add('active');
+            quoteNavBtns[index].classList.add('active');
+            
+            currentQuoteIndex = index;
+        }
+        
+        // Add click events to quote nav buttons
+        quoteNavBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                showQuote(index);
+            });
+        });
+        
+        // Auto rotate quotes
+        setInterval(() => {
+            let nextIndex = currentQuoteIndex + 1;
+            if (nextIndex >= quoteSlides.length) {
+                nextIndex = 0;
+            }
+            showQuote(nextIndex);
+        }, 5000);
+        
+        // Countdown to Mother's Day
+        function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            
+            // Find second Sunday in May (Mother's Day)
+            let mothersDay = new Date(currentYear, 4, 1); // May 1st
+            while (mothersDay.getDay() !== 0) { // Find first Sunday
+                mothersDay.setDate(mothersDay.getDate() + 1);
+            }
+            mothersDay.setDate(mothersDay.getDate() + 7); // Add 7 days to get to second Sunday
+            
+            // If Mother's Day has passed this year, set for next year
+            if (now > mothersDay) {
+                mothersDay = new Date(currentYear + 1, 4, 1);
+                while (mothersDay.getDay() !== 0) {
+                    mothersDay.setDate(mothersDay.getDate() + 1);
+                }
+                mothersDay.setDate(mothersDay.getDate() + 7);
+            }
+            
+            const diff = mothersDay - now;
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('days').textContent = days;
+        }
+        
+        // Initial countdown update
+        updateCountdown();
+        
+        // Update countdown daily
+        setInterval(updateCountdown, 86400000); // 24 hours
+        
+        // Form submission
+        const storyForm = document.getElementById('storyForm');
+        if (storyForm) {
+            storyForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const story = document.getElementById('story').value;
+                
+                // Here you would normally send this data to a server
+                // For demo purposes, we'll just show an alert
+                alert(`Thank you, ${name}! Your story has been submitted.`);
+                
+                // Reset form
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>

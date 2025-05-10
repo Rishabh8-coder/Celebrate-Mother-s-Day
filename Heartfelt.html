@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartfelt Messages - For the Most Special Woman</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdf4f8;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50C60 40 70 50 75 45C80 40 70 30 60 30C50 30 40 40 50 50ZM25 55C35 45 45 55 50 50C55 45 45 35 35 35C25 35 15 45 25 55Z' fill='%23fce1ee' fill-opacity='0.3'/%3E%3C/svg%3E");
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, rgba(252,225,238,0.8) 0%, rgba(255,214,225,0.8) 100%);
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #d23f84;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #b34180;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mother-img {
+            width: 100%;
+            max-width: 300px;
+            margin: 1rem auto;
+            border-radius: 50%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 5px solid white;
+        }
+        
+        .messages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .message-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid #ff80ab;
+        }
+        
+        .message-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+        }
+        
+        .message-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50C60 40 70 50 75 45C80 40 70 30 60 30C50 30 40 40 50 50Z' fill='%23fce1ee' fill-opacity='0.2'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .message-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+        }
+        
+        .message-icon {
+            color: #ff80ab;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        .copy-btn {
+            background: #f5f5f5;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            color: #777;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #ff80ab;
+            color: white;
+        }
+        
+        .copy-btn i {
+            margin-right: 0.3rem;
+        }
+        
+        .love-icon {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 5rem;
+            right: -20px;
+            bottom: -20px;
+            color: #ff80ab;
+            transform: rotate(-15deg);
+        }
+        
+        .copied-alert {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff80ab;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .show-alert {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .messages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ Heartfelt Messages ✨</h1>
+            <div class="subtitle">For the Most Special Woman</div>
+            <div class="mother-img">
+                <img src="mom picture.jpg" alt="Mother and Child" class="mother-img">
+            </div>
+        </header>
+        
+        <div class="messages-grid" id="messagesContainer">
+            <!-- Messages will be inserted here by JavaScript -->
+        </div>
+        
+        <div class="copied-alert" id="copiedAlert">
+            <i class="fas fa-check-circle"></i> Message copied!
+        </div>
+    </div>
+    
+    <footer>
+        <p>Express your love with these beautiful messages ❤️</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const messages = [
+                "Maa, aap meri zindagi ka sabse haseen tohfa ho. Aapke bina har khushi adhoori hai.",
+                "Jab bhi girta hoon, aapki duaon ka haath hamesha mujhe uthata hai.",
+                "Aapki muskaan meri duniya hai, Maa. Aap jahan ho wahan hi mera ghar hai.",
+                "Aapki god sabse pyari jagah hai jahan sirf sukoon milta hai.",
+                "Maa, aapki ek muskaan saari thakan mita deti hai. Aap meri superwoman ho.",
+                "Aapka pyaar meri zindagi ki sabse badi taqat hai. Thank you for being you!",
+                "Main har din shukr ada karta hoon ki mujhe aap jaisi maa mili.",
+                "Maa ka pyaar bina sharto ke hota hai – sabse nirmal, sabse pavitra.",
+                "Jab sab thukra dein, Maa ki baahon me jagah milti hai.",
+                "Zindagi ki har safalta ka asli shrey maa ke ashirwad ko jaata hai."
+            ];
+            
+            const icons = [
+                "fas fa-heart",
+                "fas fa-dove",
+                "fas fa-star",
+                "fas fa-sun",
+                "fas fa-praying-hands",
+                "fas fa-hand-holding-heart",
+                "fas fa-seedling",
+                "fas fa-peace",
+                "fas fa-home",
+                "fas fa-crown"
+            ];
+            
+            const bgColors = [
+                "#fce4ec", "#f8bbd0", "#f3e5f5", "#e8eaf6", 
+                "#e3f2fd", "#e0f7fa", "#e0f2f1", "#fff8e1",
+                "#fff3e0", "#fbe9e7"
+            ];
+            
+            const borderColors = [
+                "#ff80ab", "#f06292", "#ba68c8", "#7986cb", 
+                "#64b5f6", "#4dd0e1", "#4db6ac", "#fff176",
+                "#ffb74d", "#ff8a65"
+            ];
+            
+            const messagesContainer = document.getElementById('messagesContainer');
+            const copiedAlert = document.getElementById('copiedAlert');
+            
+            // Create and append message cards
+            messages.forEach((message, index) => {
+                const randomBgIndex = Math.floor(Math.random() * bgColors.length);
+                
+                const card = document.createElement('div');
+                card.className = 'message-card';
+                card.style.background = `linear-gradient(135deg, ${bgColors[randomBgIndex]} 0%, white 100%)`;
+                card.style.borderTop = `4px solid ${borderColors[randomBgIndex]}`;
+                
+                card.innerHTML = `
+                    <div class="message-text">${message}</div>
+                    <div class="icon-container">
+                        <i class="${icons[index % icons.length]} message-icon"></i>
+                        <button class="copy-btn" data-message="${message}">
+                            <i class="far fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <i class="fas fa-heart love-icon"></i>
+                `;
+                
+                messagesContainer.appendChild(card);
+            });
+            
+            // Add animation on scroll
+            window.addEventListener('scroll', function() {
+                const cards = document.querySelectorAll('.message-card');
+                cards.forEach(card => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    if (cardTop < window.innerHeight - 100) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            // Copy button functionality
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.copy-btn')) {
+                    const btn = e.target.closest('.copy-btn');
+                    const message = btn.dataset.message;
+                    
+                    navigator.clipboard.writeText(message).then(() => {
+                        // Show copied alert
+                        copiedAlert.classList.add('show-alert');
+                        
+                        // Hide after 2 seconds
+                        setTimeout(() => {
+                            copiedAlert.classList.remove('show-alert');
+                        }, 2000);
+                    });
+                }
+            });
+            
+            // Add random floating hearts animation
+            const container = document.querySelector('.container');
+            
+            function createHeart() {
+                const heart = document.createElement('i');
+                heart.className = 'fas fa-heart';
+                heart.style.position = 'absolute';
+                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+                heart.style.color = borderColors[Math.floor(Math.random() * borderColors.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.opacity = Math.random() * 0.5 + 0.1;
+                heart.style.animation = `float ${Math.random() * 5 + 5}s linear infinite`;
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.zIndex = '-1';
+                
+                container.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 10000);
+            }
+            
+            // Create random hearts periodically
+            setInterval(createHeart, 3000);
+            
+            // Add initial hearts
+            for (let i = 0; i < 10; i++) {
+                createHeart();
+            }
+            
+            // Add animation keyframes dynamically
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes float {
+                    0% {
+                        transform: translateY(0) rotate(0deg);
+                        opacity: 0.1;
+                    }
+                    50% {
+                        opacity: 0.4;
+                    }
+                    100% {
+                        transform: translateY(-100vh) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+                
+                .message-card {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: all 0.5s ease;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
